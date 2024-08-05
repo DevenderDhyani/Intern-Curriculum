@@ -1,14 +1,11 @@
 //normal javascript object
 
+//function are not going to be 
 let json1 = {
     "name" : "devender",
     "checking" :  function greet(){
         console.log("Greeting")
-    },
-    greater(){
-        console.log("Working")
-    },
-    "classes":"Btech"
+    }
 };
 console.log(json1)
 
