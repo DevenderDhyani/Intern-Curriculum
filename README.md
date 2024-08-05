@@ -1,1 +1,1 @@
-# Inter-Curriculum-Devender-Dhyani
+# Intern-Curriculum-Devender-Dhyani
