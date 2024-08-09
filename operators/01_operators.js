@@ -108,14 +108,23 @@ let str6 = '10'
 let num6 = 20
 let str7 = '10'
 let num7 = 20
-let numstr6 = str6+num6
+let numstr6 = num6+str6
 let numstr7 = num7+str7
-console.log(str6+num6)
-console.log(typeof numstr6)
+console.log(str6+num6) //1020
+console.log(+str7) //
+console.log("---------------------------------:::::$$$$$$:::"+typeof numstr6) //num
 numstr6 = num6 + str6
 console.log(numstr7)
 console.log(typeof (num7+str7))
 console.log(typeof str5)
+
+
+
+console.log("---------------------Conditional Operator (ternary)-------------------")
+let age = 18;
+let canVote = age >= 18 ? "Yes" : "No";
+console.log(canVote); // Output: "Yes"
+
 
 
 
@@ -163,7 +172,7 @@ let b1 = 5;
 console.log(~b1); // Output: -6 (Bitwise NOT)
 
 let c1 = "hello";
-console.log(typeof c1); // Output: "string"
+console.log(      c1); // Output: "string"
 
 let d1 = 42;
 void d1
@@ -177,7 +186,6 @@ console.log(obj.prop); // Output: undefined
 
 
 // Relational Operators Example:
-
 let obj43 = { name: "Alice", age: 25 };
 console.log("name" in obj43); // Output: true
 console.log("gender" in obj43); // Output: false
@@ -205,14 +213,16 @@ console.log(-0 === +0)//true
 console.log("-------Usecase : SameValue ---------")
 //object.is() used samevalue alogrithm in beckend for precise value check
 console.log(Object.is(-0,+0)) //false
+console.log(Object.is(-0,+0)) //false
 
 console.log("---------------- Array.prototype.include() ---------------------")
-//Array.prototype.include()
-let arr = [1, 2, NaN];
+let arr = [1, 2, NaN,+0];
 console.log(arr[2] == NaN) //false
 console.log("-------Usecase : SameValueZero ---------")
 //include uses samevaluezero alogrithm to check extra features for 0 and nan comparision
+console.log(arr.includes(-0)); // true (SameValueZero comparison)
 console.log(arr.includes(NaN)); // true (SameValueZero comparison)
+console.log(arr.includes(7846)); // true (SameValueZero comparison)
 
 
 console.log("--------------difference between samevalue and samevaluezero---------------------------")
@@ -266,8 +276,22 @@ bob.greet(); // Output: "Hello, Bob"
 // Prototype Methods: Access and modify prototypes using methods like Object.create(), Object.getPrototypeOf(), and Object.setPrototypeOf().
 
 let objproto = {};
-let protomain = { hello: "world" };
+let protomain = { hello: "world"};
 
 Object.setPrototypeOf(objproto, protomain);
 console.log(Object.getPrototypeOf(objproto)); // Output: { hello: "world" }
 console.log(objproto.hello); // Output: "world" (inherited from prototype)
+
+console.log("::::::::::::::::::::"+protomain.isPrototypeOf(objproto))
+
+// hasOwnProperty()
+// isPrototypeOf()
+// propertyIsEnumerable()
+// toLocaleString()
+// valueOf()
+
+let text = new String("University")
+console.log(typeof text)
+
+let result = text.valueOf()
+console.log(typeof result)

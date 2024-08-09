@@ -65,7 +65,7 @@ console.log(sym12==sym22)
 console.log(sym12===sym22)
 
 
-//Symbol :: 2  {it can be act as a }
+//Symbol :: 2  {it can be act as a uneque key in objects}
 const uniqueKey = Symbol('description');
 const obj = {
   [uniqueKey]: 'value'

@@ -140,58 +140,7 @@ console.log(objTest2.objcts)
 
 
 
-console.log("------------------prototype---------------------")
-// Prototypes provide a way to share properties and methods between objects.
-// Prototype Chain: When a property is not found on an object, JavaScript looks up the prototype chain.
-// Creating Prototypes: Use object literals, constructor functions, or ES6 classes.
-console.log("---------------------object literal--------------------")
-let person = {
-  name: "Alice",
-  greet: function() {
-    console.log("Hello, " + this.name);
-  }
-};
 
-let anotherPerson = Object.create(person);
-anotherPerson.name = "Bob";
-anotherPerson.greet(); // Output: "Hello, Bob"
-
-console.log("---------------------CONSTRUCTOR FUNCTIONS--------------------")
-function Person(name) {
-  this.name = name;
-}
-
-Person.prototype.greet = function() {
-  console.log("Hello, " + this.name);
-};
-
-let alice = new Person("Alice");
-alice.greet(); // Output: "Hello, Alice"
-
-console.log("---------------------Class ES6 --------------------")
-//ES6 introduced class syntax, which is syntactic sugar over JavaScript’s existing prototype-based inheritance.
-class Person {
-  constructor(name) {
-      this.name = name;
-  }
-
-  greet() {
-      console.log("Hello, " + this.name);
-  }
-}
-
-let bob = new Person("Bob");
-bob.greet(); // Output: "Hello, Bob"
-
-
-// Prototype Methods: Access and modify prototypes using methods like Object.create(), Object.getPrototypeOf(), and Object.setPrototypeOf().
-
-let objproto = {};
-let protomain = { hello: "world" };
-
-Object.setPrototypeOf(objproto, protomain);
-console.log(Object.getPrototypeOf(objproto)); // Output: { hello: "world" }
-console.log(objproto.hello); // Output: "world" (inherited from prototype)
 
 
 
