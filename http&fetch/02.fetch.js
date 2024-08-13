@@ -21,8 +21,8 @@ async function getting(){
         //first way to make data readable.
         const result = await response.text(); //return promise in form of string
         // console.log(JSON.parse(result))
-        console.log(typeof response)//object
-        console.log(typeof result)//string
+        console.log(typeof response)
+        console.log(typeof result)
         
             //second way to make data readable
             // const data = JSON.parse(response)

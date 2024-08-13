@@ -27,7 +27,6 @@ new firstClass(2,45,3).printing()
 
 
 console.log("---------------2nd way to create a class---------------")
-z
 const way2Class = class test{
     constructor(a){
         if(a ){
@@ -41,3 +40,56 @@ const way2Class = class test{
     }
 }
 new way2Class(123).testing()
+
+
+console.log("----------------inheritance--------------------")
+// class Shape {
+//     constructor(){
+//         console.log("parent construnctor")
+//     }
+
+//     area() {
+//         // throw new Error('Method "area()" must be implemented.');
+//         console.log("parent")
+//     }
+// }
+
+// class Rectangle extends Shape {
+//     constructor(width, height) {
+//         super(width);
+//         this.width = width;
+//         this.height = height;
+//     }
+
+//     area() {
+//         return this.width * this.height;
+//     }
+// }
+// // const shape1 = new Shape()
+// const shape2 = new Rectangle(2,3)
+// console.log(
+//     shape2.area()
+
+// )
+
+
+
+//it is mandatory to call super in child class constructor
+class Shape {
+    // constructor(){
+    //     console.log("parent")
+    // }
+    draw() {
+        console.log('Drawing shape...');
+    
+    }
+}
+
+class Circle extends Shape {
+    draw() {
+        super.draw()
+        console.log('Drawing a circle...');
+    }
+}
+
+const circle = new Circle().draw();
