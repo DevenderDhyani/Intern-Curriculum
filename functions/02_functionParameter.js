@@ -93,3 +93,13 @@ console.log("\n---------------Built in function ----------------");
 
 // These built-in functions are designed to help with common tasks, improve code efficiency, and ensure consistent behavior across different JavaScript environments.
 
+
+
+console.log("------------ Day-11 ------------")
+const test = function check(num1 =12,num2 = 123){
+    this.num1 = num1
+    this.num2 = num2
+    return num1+num2
+}
+const testing  = test()
+console.log(testing)
