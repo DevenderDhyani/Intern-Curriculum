@@ -74,22 +74,63 @@ console.log("----------------inheritance--------------------")
 
 
 
+console.log("---------Super----------")
 //it is mandatory to call super in child class constructor
-class Shape {
-    // constructor(){
-    //     console.log("parent")
-    // }
-    draw() {
-        console.log('Drawing shape...');
-    
-    }
-}
+// class Shape {
+//     // constructor(){
+//     //     console.log("parent")
+//     // }
+//     draw() {
+//         console.log('Drawing shape...');
+//     }
+// }
 
-class Circle extends Shape {
-    draw() {
-        super.draw()
-        console.log('Drawing a circle...');
-    }
-}
+// class Circle extends Shape {
+//     draw() {
+//         super.draw()
+//         console.log('Drawing a circle...');
+//     }
+// }
 
-const circle = new Circle().draw();
+// const circle = new Circle().draw();
+
+
+console.log("---------Benifits of Inheritance----------")
+// class Animal {
+    //     speak() {
+        //         console.log('Animal speaks.');
+        //     }
+        // }
+        
+// class Dog extends Animal {
+//     speak() {
+//         console.log('Woof!');
+//     }
+// }
+
+// class Cat extends Animal {
+//     speak() {
+//         console.log('Meow!');
+//     }
+// }
+
+// function makeAnimalSpeak(animal) {
+//     animal.speak(); // Polymorphism: can be a Dog or Cat
+// }
+
+// makeAnimalSpeak(new Dog()); // Output: "Woof!"
+// makeAnimalSpeak(new Cat()); // Output: "Meow!"
+
+console.log("---------overloading is not allowed in javascript as java----------")
+
+// //we need to manually handle code for different types of parameters calling same function.
+// function greet(name, greeting) {
+//     if (arguments.length === 1) {
+//         console.log(`Hello, ${name}!`);
+//     } else if (arguments.length === 2) {
+//         console.log(`${greeting}, ${name}!`);
+//     }
+// }
+
+// greet('Alice');           // Output: "Hello, Alice!"
+// greet('Alice', 'Hi');     // Output: "Hi, Alice!"
