@@ -48,3 +48,5 @@ console.log(arr.at(2))
 let arr3 = [1,5,3,6,7,4,3,6,7,9,8]
 arr3 = arr3.sort();
 console.log(arr3)
+
+let arr5 = [] //empty array created

@@ -295,3 +295,35 @@ console.log(typeof text)
 
 let result = text.valueOf()
 console.log(typeof result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let kdi = 232
+if(1< kdi <3){
+  console.log(">>>>>>>>>>",kdi)
+}else{
+  console.log("??????????????",kdi)
+}
+
+let check = [] + []
+console.log();
+console.log(typeof check);
+console.log({} + []);
+console.log({} + {});
