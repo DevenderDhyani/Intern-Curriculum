@@ -68,10 +68,13 @@ function add(v1:number | string,v2:string):string|number{
 
 console.log("------hybrid typing-----")
 
-// In this example:
+// This is only one type of example in which we can use it like a function. It defines a structure.
 // Greeter is a type with a callable signature (message: string): void and a property greeting.
 // greeter is an instance of this type, and it behaves like a function (because of the callable signature) and also has a property greeting.
 
+//An anonymous function, on the other hand, is a function expression that does not have a name. It can be assigned to a variable or passed as an argument, but it is not used to define the structure of a type.
+
+//Deffination : In TypeScript, "hybrid types" refer to types that combine multiple roles or behaviors into a single type. This usually involves creating types or interfaces that mix both callable signatures and other properties or methods, or combining various types into one cohesive unit.
 type Greeter = {
     (message: string): void;  // Callable signature
     greeting: string;         // Property
@@ -83,3 +86,42 @@ const greeter: Greeter = (message: string) => {
 
 greeter.greeting = "Hello";
 greeter("World"); // Output: Hello, World
+
+
+//example 2 of hybrid typing
+class Base {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+
+type HybridClass = Base & {
+    logName: () => void;
+    additionalProperty: string;
+};
+
+class HybridClassImpl extends Base implements HybridClass {
+    additionalProperty: string;
+    constructor(name: string, additionalProperty: string) {
+        super(name);
+        this.additionalProperty = additionalProperty;
+    }
+    logName() {
+        console.log(this.name);
+    }
+}
+
+const hybridInstance = new HybridClassImpl("Hybrid", "Extra");
+hybridInstance.logName(); // Output: Hybrid
+console.log(hybridInstance.additionalProperty); // Output: Extra
+
+
+const testing:HybridClass ={
+    name : "Gaurav",
+    additionalProperty : "Joshi",
+    logName() {
+        console.log(`${this.name} ${this.additionalProperty} is a good boy`)
+    },
+}
+testing.logName()

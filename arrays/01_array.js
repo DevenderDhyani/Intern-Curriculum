@@ -50,3 +50,8 @@ arr3 = arr3.sort();
 console.log(arr3)
 
 let arr5 = [] //empty array created
+
+
+console.log("-----------map() on array---------")
+const arrtest = arr3.map((val,key)=>({key,val}))
+console.log(arrtest)

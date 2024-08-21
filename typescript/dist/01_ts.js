@@ -75,8 +75,4 @@ class ty2class {
     }
 }
 const point = [10, 20];
-function working12() {
-    console.log("Working");
-}
-working12();
 //# sourceMappingURL=01_ts.js.map
