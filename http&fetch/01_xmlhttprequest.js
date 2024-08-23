@@ -61,14 +61,15 @@
 
 //note: xmlhttprequest is availble on node but it is availbale in chrome browser
 function working(){
-    let x1 = new XMLHttpRequest()
-    x1.onload = function(){
-        document.getElementById("demo").innerHTML = this.responseText;
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET","./test.txt")
+    xhttp.onload = function(){
+        //document.getElementById("demo").innerHTML = this.responseText;
+        console.log(this.responseText)
     }
-    x1.open("GET","./test.txt")
-    x1.send();
+    xhttp.send();
 }
-
+working()
 // JSON Data (application/json): 
 //      Use JSON.parse() to convert the response text into a JavaScript object.
 // HTML Data (text/html): 

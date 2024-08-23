@@ -27,12 +27,10 @@ abc(xyz)
 
   console.log("----------------Callback Hell---------------" )
   function callBack(num, callbackfunc){
-    setTimeout(()=>{
-        console.log("Called after",num,'sec')
+    console.log("Called after",num,'sec')
         if(callbackfunc){
             callbackfunc()
         }
-    },num*1000)
   }
 
   console.log("calling 1...")
@@ -43,9 +41,42 @@ abc(xyz)
         callBack(3,()=>{ 
             console.log("calling 4...")
             callBack(4)
+            console.log("completed 4")
         })
+        console.log("completed 3")
     })
+    console.log("completed 2")
   })
+  console.log("completed 1")
+
+//althought the below function is completely same we are using only settime the output will be completely different when compared with the output of previous similar function without settimeout
+  function callBackt(num, callbackfunc){
+    console.log("Called after",num,'sec')
+        setTimeout(()=>{
+            if(callbackfunc){
+                callbackfunc()
+            }
+        },1000)
+  }
+
+  console.log("calling 1...")
+  callBackt(1,()=>{
+    console.log("calling 2...")
+    callBackt(2,()=>{
+        console.log("calling 3...")
+        callBackt(3,()=>{ 
+            console.log("calling 4...")
+            callBackt(4)
+            console.log("completed 4")
+        })
+        console.log("completed 3")
+    })
+    console.log("completed 2")
+  })
+  console.log("completed 1")
+
+
+
 
 
 

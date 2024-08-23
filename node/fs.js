@@ -24,7 +24,7 @@ fs.writeFile('01_file.txt', 'Hey universe...', 'utf8', (err) => {
   });
 
 
-  //reading a file
+  //reading a file asynchronously..
   fs.readFile('01_file.txt','utf-8',(err,data)=>{
     if(err){
         console.log(err)

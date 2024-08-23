@@ -47,3 +47,19 @@ async function getting(){
     }
 }
 getting()
+
+
+// // Fetch the data from the API
+// const response = await fetch(url, options);
+
+// // Method 1: Get the response as a string
+// const textResult = await response.text();
+// console.log(textResult); // Logs the response body as a string
+
+// // If the textResult is in JSON format, you can manually parse it
+// const parsedData = JSON.parse(textResult);
+// console.log(parsedData); // Logs the parsed JSON object
+
+// // Method 2: Get the response as a JSON object directly
+// const jsonData = await response.json();
+// console.log(jsonData); // Logs the parsed JSON object
