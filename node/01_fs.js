@@ -14,15 +14,21 @@ fs.stat('01_dir', (err, stats) => {
 });
 
 
-//creating a file or override to check wheather it exists or not.
+//creating a file or override to check wheather it exists or not. its async
 fs.writeFile('01_file.txt', 'Hey universe...', 'utf8', (err) => {
     if (err) {
       console.error('Error creating file:', err);
       return;
     }
     console.log('File created successfully');
-  });
-
+});
+fs.appendFile('01_file.txt',"He whats yp",'utf-8',(err)=>{
+  if (err) {
+    console.error('Error creating file:', err);
+    return;
+  }
+  console.log('File append successfully');
+})
 
   //reading a file asynchronously..
   fs.readFile('01_file.txt','utf-8',(err,data)=>{

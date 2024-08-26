@@ -1,3 +1,4 @@
+//event emmiter is class in node.
 //emmiter are the way to create costom events and can be used to triger them on an spacial events.
 
 const file = require('fs')

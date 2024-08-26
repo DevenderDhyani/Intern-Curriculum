@@ -6,7 +6,6 @@ function func1(){
 //function expression is not going to be hoisted
 let func2 = function () {
     console.log("func2")
-    
 }
 
 //named function expressions :: no hoisting
