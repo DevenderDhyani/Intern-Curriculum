@@ -85,6 +85,17 @@ console.log(map1.get("Classss"))
 console.log(map2)
 
 
+console.log("--------------MAP---------------")
+
+const objMAP = { a: 1, b: 2, c: 3 };
+
+const mappedObj = Object.entries(objMAP).map(([key, value]) => {
+  return [key, value * 2]; // Example transformation: double the value
+});
+console.log(mappedObj)
+console.log(typeof mappedObj)
+
+
 
 
 

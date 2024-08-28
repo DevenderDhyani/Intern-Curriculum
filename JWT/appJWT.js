@@ -1,53 +1,72 @@
+//to create apis get post put
 const express = require('express')
+//to parse cookies
+const cookieParser = require('cookie-parser')
+const path = require("path")
+//JWT for authentication
 const jwt = require('jsonwebtoken')
 const app = express()
 const skey = "secretKey"
-app.get("/", (req, res) => {
-    res.json({
-        message: "returned from get request of express application using no"
-    })
-})
 
+//it is running because we need to parse cookie recieved for authentication
+//if we don't don't use this we can not eligible to recive the cookies data
+app.use(cookieParser())
+
+//for any post request if we want to get the values from the request object then we need to do extend url encoding
+app.use(express.urlencoded({extended:true}))
+//it will see th directory where index.html is present and it will run on localhost:port/ by default
+app.use(express.static('public'))
+
+//created a post request which will triger when user filled form and press enter
 app.post("/login", (req, res) => {
     const user = {
-        id: 1,
-        username: 'dev',
-        email: 'dev.dhyani2024@gmail.com'
+        email : req.body.email,
+        password : req.body.password
     }
-    jwt.sign({ user }, skey, { expiresIn: '300s' }, (err, token) => {
-        res.json({
-            token
-        })
-    })
+    console.log(user)
+    const token = jwt.sign({ user }, skey,{expiresIn:'300s'})
+    console.log("cookie set..")
+    // setting cookie 
+    res.cookie("Authorization",token)
+    console.log("redirecting....")
+            //to will send html page to the browser.
+            // res.sendFile(path.resolve('./public/profile.html'))
+    res.redirect("/profile")
 })
 
-app.post("/profile", verifyToken, (req, res) => {
+app.get("/profile", verifyToken, (req, res) => {
+    console.log("User is varified......")
+    //it will varify the token with skey signature and it will return the payload
     jwt.verify(req.token, skey, (err, authData) => {
         if (err) {
             res.send({
-                result: "not working...."
-            })
+                result: "Error occurred while verifying token...."
+            });
         } else {
+            console.log(authData);  // Ensure this logs the expected user data
             res.json({
-                message: "finally data recieved.",
+                message: "finally data received.",
                 authData
-            })
+            });
         }
-    })
+
+    });
+    
 })
+//middlewhere run as soon as /profile hits by the enduser or any redirect is performed.
 function verifyToken(req, res, next) {
-    const x1 = req.headers['authorization'];
-    console.log(x1)
-    if (typeof x1 !== 'undefined') {
-        const x2 = x1.split(" ");
-        const token = x2[1];
-        req.token = token;
-        next();
-    } else {
-        res.send({
-            response: 'invalid response!!!!'
-        })
-    }
+    console.log("varify token called...")
+
+    //if we use this token the value will no recieve..
+
+        // const token = req.headers["Authorization"]
+        // const token = req.header("Authorization")
+
+    //this will work in any of case but make sure cookieParser() is in use.
+    const token = req.cookies.Authorization
+    console.log("token : ",token)
+    req.token = token; // Assign the verified token to request object
+    next();  // Proceed to the next middleware or route handler
 }
 
 app.listen(3000, () => {
