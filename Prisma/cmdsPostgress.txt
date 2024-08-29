@@ -1,0 +1,3 @@
+npm init -y
+npm install prisma
+npx prisma init //creates schema.prisma

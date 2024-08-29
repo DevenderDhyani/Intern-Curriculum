@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.19.0",
     "axios": "^1.7.4",
     "ws": "^8.18.0",
     "yup": "^1.4.0"
-  },
-  "devDependencies": {}
+  }
 }
