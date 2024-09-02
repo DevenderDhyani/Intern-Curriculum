@@ -1,3 +1,10 @@
+// beforeAll(fn, timeout): Runs a function once before all the tests in a describe block.
+// afterAll(fn, timeout): Runs a function once after all the tests in a describe block.
+// beforeEach(fn, timeout): Runs a function before each test in a describe block.
+// afterEach(fn, timeout): Runs a function after each test in a describe block.
+
+
+
 //this method will execute and print before each test 
 beforeEach(() => {
     console.log("Working before test")
