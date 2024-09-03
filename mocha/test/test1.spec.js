@@ -172,31 +172,32 @@
 
 
   // Dynamically import Chai
-  const { expect } = require('chai');
+  import { expect,assert} from 'chai';
+  // import  from 'node:assert'
 
-  describe('Addition', function () {
+  describe('Calulate', function () {
     it('should return 4 when adding 2 + 2', function () {
-      expect.strictEqual(2 + 2, 4);
+      assert.strictEqual(2 + 2, 4);
     });
 
     it('should return 0 when adding -2 + 2', function () {
-      expect.strictEqual(-2 + 2, 0);
+      assert.strictEqual(-2 + 2, 0);
     });
 
     it('should be true', function () {
-      expect.isTrue(true, 'Value should be true');
+      assert.isTrue(true, 'Value should be true');
     });
 
     it('should be false', function () {
-      expect.isFalse(false, 'Value should be false');
+      assert.isFalse(false, 'Value should be false');
     });
 
     it('should include value in array', function () {
-      expect.include([1, 2, 3], 2, 'Array should include the value');
+      assert.include([1, 2, 3], 2, 'Array should include the value');
     });
 
     it('should include substring in string', function () {
-      expect.include('hello world', 'world', 'String should include the substring');
+      assert.include('hello world', 'world', 'String should include the substring');
     });
   });
 
@@ -262,7 +263,9 @@ describe('Subtraction', () => {
 
   it('should complete in time', function (done) {
     this.timeout(2000); // 5 seconds
-    setTimeout(done, 2000); // Call done() within the timeout period
+    setTimeout(()=>{
+      done()
+    }, 1000); // Call done() within the timeout period
   });
 
 
