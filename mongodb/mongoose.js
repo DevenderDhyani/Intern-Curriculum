@@ -2,7 +2,7 @@
 import mongo from 'mongoose'
 import express from 'express'
 
-
+// Witz%402024
 mongo.connect("mongodb+srv://devenderdhyani:Witz%402024@cluster0.gfpsm.mongodb.net/prisma?retryWrites=true&w=marity",{
     writeConcern: { w: 'majority' }  // Correct write concern
   })

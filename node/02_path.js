@@ -15,7 +15,7 @@ console.log(extnam)
 
 //************** resolve *****************
 let res = path.resolve("02_dir/devender/dhyani","abc.txt")
-console.log(res)
+console.log("res: ",res)
 
 
 

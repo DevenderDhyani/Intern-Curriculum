@@ -13,7 +13,7 @@ const logger = winston.createLogger({
   ),
   //where to store the logs
   transports: [
-    // creating a new file and storin the log that we have
+    //creating a new file with name error. and storing the log we format just before into that
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
     new winston.transports.File({ filename: 'combined.log' }),
     new winston.transports.Console({
