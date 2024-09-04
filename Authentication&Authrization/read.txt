@@ -1,0 +1,3 @@
+Session Setup: When you use express-session, it sets up session management for your Express application. This middleware handles the creation and maintenance of the session, including storing the session ID in a cookie on the client side and managing session data on the server side.
+
+Passport Integration: When you call passport.session(), Passport integrates with the existing session management provided by express-session. It uses the session data to maintain user authentication state.

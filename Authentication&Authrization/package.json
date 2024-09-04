@@ -1,0 +1,15 @@
+{
+  "description": "",
+  "scripts": {
+    "dev": "node multer.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "node-captcha-generator": "^0.0.1",
+    "svg-captcha": "^1.4.0"
+  }
+}
