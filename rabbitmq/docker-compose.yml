@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: new_container
+    ports:
+      - "5672:5672" # AMQP protocol
+      - "15692:15672" # Management plugin web interface
