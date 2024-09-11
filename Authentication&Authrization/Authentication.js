@@ -18,6 +18,7 @@ passport.use(new LocalStrategy(
 
 app.post('/login', passport.authenticate('local'), (req, res) => {
   const token = jwt.sign({ id: req.user.id }, 'your_jwt_secret', { expiresIn: '1h' });
+  res.cookie("token", token)
   res.json({ token });
 });
 

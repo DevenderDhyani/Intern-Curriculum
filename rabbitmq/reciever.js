@@ -57,7 +57,9 @@ const consumeMessages = async () => {
             if (msg !== null) {
                 console.log(`Received message: ${msg.content.toString()}`);
                 channel.ack(msg); // Acknowledge the message
+                channel.close()
             }
+            connection.close()
         });
     } catch (error) {
         console.error('Error consuming messages:', error);

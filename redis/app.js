@@ -8,7 +8,8 @@ app.use(express.json())
 app.post('/', async (req, res) => {
     const name = req.body;
     console.log(name)
-    const data = await client.rPush("dommyuser3", JSON.stringify(name))
+    // const data = await client.rPush("dommyuser3", JSON.stringify(name))
+    const data = await client.set("dommyuser4", `${name}`)
     console.log("inserted")
     // console.log(data)
 })

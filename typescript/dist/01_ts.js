@@ -9,19 +9,18 @@ function fn(message) {
 }
 console.log("--------------Interface-----------------");
 class student {
-    constructor(isStudent, rollno, name) {
+    constructor(name, rollno, isStudent) {
         this.name = name;
         this.isStudent = isStudent;
         this.rollno = rollno;
     }
     display() {
-        console.log(this.name);
     }
 }
-const s1 = new student(true, "23");
+const s1 = new student("DevenderDhyani", "23", true);
 class topper extends student {
     constructor(name, isStudent, rollno, result) {
-        super(isStudent, rollno, name);
+        super(name, rollno, isStudent);
         this.result = result;
     }
     working() {

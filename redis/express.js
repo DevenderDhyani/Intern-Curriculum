@@ -11,7 +11,6 @@ const client = createClient({
 
 client.connect().then(data => {
     console.log('working : ')
-
 }).catch(e => { console.log() })
 
 

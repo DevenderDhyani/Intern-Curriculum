@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT Request with User ID and Update Data</title>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required> <!-- User ID input -->
+
+        <label for="name">New Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">New Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get userId from the input field
+            const userId = document.getElementById('userId').value;
+
+            // Collect update data from the form
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Build the update URL with the userId as a path parameter
+            const updateUrl = `localhost:3000/auth/updatingInfo/${userId}`;
+
+            // Send the PUT request with the update data in the body
+            fetch(updateUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data) // Send the update data (e.g., name, email) in the request body
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>

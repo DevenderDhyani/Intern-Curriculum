@@ -13,29 +13,29 @@ const skey = "secretKey"
 app.use(cookieParser())
 
 //for any post request if we want to get the values from the request object then we need to do extend url encoding
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 //it will see th directory where index.html is present and it will run on localhost:port/ by default
 app.use(express.static('public'))
 
 //created a post request which will triger when user filled form and press enter
 app.post("/login", (req, res) => {
     const user = {
-        email : req.body.email,
-        password : req.body.password
+        email: req.body.email,
+        password: req.body.password
     }
     console.log(user)
-    const token = jwt.sign({ user }, skey,{expiresIn:'300s'})
+    const token = jwt.sign({ user }, skey, { expiresIn: '300s' })
     console.log("cookie set..")
     // setting cookie 
-    res.cookie("Authorization",token)
+    res.cookie("Authorization", token)
     console.log("redirecting....")
-            //to will send html page to the browser.
-            // res.sendFile(path.resolve('./public/profile.html'))
+    //to will send html page to the browser.
+    // res.sendFile(path.resolve('./public/profile.html'))
     res.redirect("/profile")
 })
 
 app.get("/profile", verifyToken, (req, res) => {
-    console.log("User is varified......")
+    console.log("User is varifying......")
     //it will varify the token with skey signature and it will return the payload
     jwt.verify(req.token, skey, (err, authData) => {
         if (err) {
@@ -51,20 +51,19 @@ app.get("/profile", verifyToken, (req, res) => {
         }
 
     });
-    
+
 })
 //middlewhere run as soon as /profile hits by the enduser or any redirect is performed.
 function verifyToken(req, res, next) {
     console.log("varify token called...")
 
-    //if we use this token the value will no recieve..
-
-        // const token = req.headers["Authorization"]
-        // const token = req.header("Authorization")
+    //if we use this token the value will not recieve..
+    // const token = req.headers["Authorization"]
+    // const token = req.header("Authorization")
 
     //this will work in any of case but make sure cookieParser() is in use.
     const token = req.cookies.Authorization
-    console.log("token : ",token)
+    console.log("token : ", token)
     req.token = token; // Assign the verified token to request object
     next();  // Proceed to the next middleware or route handler
 }

@@ -21,34 +21,34 @@ function fn(message: number): void {
 console.log("--------------Interface-----------------")
 //interface
 interface Children {
-    name?: string;
-    isStudent: boolean;
+    name: string;
+    isStudent?: boolean;
     rollno: number | string;
     display(): void;
 }
 //we must implement an interface and extend a class
 //impliments
 class student implements Children {
-    name?: string;
-    isStudent: boolean;
+    name: string;
+    isStudent?: boolean;
     rollno: string;
-    constructor(isStudent: boolean, rollno: string, name?: string) {
+    constructor(name: string, rollno: string,isStudent?: boolean) {
         this.name = name;
         this.isStudent = isStudent;
         this.rollno = rollno;
     }
     display(): void {
-        console.log(this.name)
+        // console.log(this.name)
     }
 }
-const s1 = new student(true, "23")
+const s1 = new student("DevenderDhyani", "23",true)
 //extends keyword is used to inherite the parent properties and can have its different properties.
 //its important to set super constructor which the values
 //exends
 class topper extends student {
     result: number;
     constructor(name: string, isStudent: boolean, rollno: string, result: number) {
-        super(isStudent, rollno, name)
+        super(name,rollno,isStudent )
         this.result = result;
     }
     working(): void {

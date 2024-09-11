@@ -39,8 +39,8 @@ const hybridInstance = new HybridClassImpl("Hybrid", "Extra");
 hybridInstance.logName();
 console.log(hybridInstance.additionalProperty);
 const testing = {
-    name: "devender",
-    additionalProperty: "dhyani",
+    name: "Gaurav",
+    additionalProperty: "Joshi",
     logName() {
         console.log(`${this.name} ${this.additionalProperty} is a good boy`);
     },
